@@ -1,3 +1,8 @@
+
+if not String::capitalize
+  String::capitalize = ->
+    @charAt(0).toUpperCase() + @slice(1)
+
 if typeof Handlebars isnt "undefined"
   UI.registerHelper "signedInAs", (date) ->
     if Meteor.user().username

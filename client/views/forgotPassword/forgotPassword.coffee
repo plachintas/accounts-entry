@@ -1,10 +1,12 @@
-Template.entryForgotPassword.helpers
+
+AccountsEntry.entryForgotPasswordHelpers = {
   error: -> t9n(Session.get('entryError'))
 
   logo: ->
     AccountsEntry.settings.logo
+}
 
-Template.entryForgotPassword.events
+AccountsEntry.entryForgotPasswordEvents = {
   'submit #forgotPassword': (event) ->
     event.preventDefault()
     Session.set('email', $('input[name="forgottenEmail"]').val())
@@ -21,3 +23,8 @@ Template.entryForgotPassword.events
         else
           Router.go AccountsEntry.settings.homeRoute
     )
+}
+
+Template.entryForgotPassword.helpers(AccountsEntry.entryForgotPasswordHelpers)
+
+Template.entryForgotPassword.events(AccountsEntry.entryForgotPasswordEvents)

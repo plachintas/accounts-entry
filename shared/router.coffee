@@ -1,3 +1,27 @@
+
+applyCustomTemplate = (templateName) ->
+  ->
+    if AccountsEntry.settings["#{templateName}Template"]
+      @template = AccountsEntry.settings["#{templateName}Template"]
+      pkgTemplateName = "entry#{templateName.capitalize()}"
+
+      # If the user has a custom template, and not using the helper, then
+      # maintain the package Javascript so that OpenGraph tags and share
+      # buttons still work.
+      pkgRendered= Template[pkgTemplateName].rendered
+      userRendered = Template[@template].rendered
+
+      if userRendered
+        Template[@template].rendered = ->
+          pkgRendered.call(@)
+          userRendered.call(@)
+      else
+        Template[@template].rendered = pkgRendered
+
+      Template[@template].events(AccountsEntry["#{pkgTemplateName}Events"])
+      Template[@template].helpers(AccountsEntry["#{pkgTemplateName}Helpers"])
+
+
 Router.map ->
 
   @route "entrySignIn",
@@ -41,26 +65,3 @@ Router.map ->
       Session.set('entryError', undefined)
       Session.set('resetToken', @params.resetToken)
     onRun: applyCustomTemplate('resetPassword')
-
-
-applyCustomTemplate = (templateName) ->
-  ->
-    if AccountsEntry.settings["#{templateName}Template"]
-      @template = AccountsEntry.settings["#{templateName}Template"]
-      pkgTemplateName = "entry#{templateName.capitalize()}"
-
-      # If the user has a custom template, and not using the helper, then
-      # maintain the package Javascript so that OpenGraph tags and share
-      # buttons still work.
-      pkgRendered= Template[pkgTemplateName].rendered
-      userRendered = Template[@template].rendered
-
-      if userRendered
-        Template[@template].rendered = ->
-          pkgRendered.call(@)
-          userRendered.call(@)
-      else
-        Template[@template].rendered = pkgRendered
-
-      Template[@template].events(AccountsEntry["#{pkgTemplateName}Events"])
-      Template[@template].helpers(AccountsEntry["#{pkgTemplateName}Helpers"])

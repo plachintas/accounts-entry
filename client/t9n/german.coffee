@@ -28,7 +28,7 @@ de =
   and: "und"
 
   error:
-    minChar: "Passwort muss mindesten 7 Zeichen lang sein."
+    minChar: "Passwort muss mindesten 8 Zeichen lang sein."
     pwOneLetter: "Passwort muss mindestens einen Buchstaben enthalten."
     pwOneDigit: "Passwort muss mindestens eine Ziffer enthalten."
     usernameRequired: "Benutzername benötigt."

@@ -27,7 +27,7 @@ es =
   and: "y"
 
   error:
-    minChar: "7 carácteres mínimo."
+    minChar: "8 carácteres mínimo."
     pwOneLetter: "mínimo una letra."
     pwOneDigit: "mínimo un dígito."
     usernameRequired: "Usuario es necesario."

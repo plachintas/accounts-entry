@@ -30,7 +30,7 @@ it =
   "User not found":  "Utente non trovato"
 
   error:
-    minChar: "Password di almeno 7 caratteri."
+    minChar: "Password di almeno 8 caratteri."
     pwOneLetter: "La Password deve contenere 1 lettera."
     pwOneDigit: "La Password deve contenere almeno un numero."
     usernameRequired: "Il Nome utente è obbligatorio."

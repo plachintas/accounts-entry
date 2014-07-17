@@ -30,7 +30,7 @@ sv =
   "User not found":  "Användaren hittades inte"
 
   error:
-    minChar: "Det krävs minst 7 tecken i ditt lösenord."
+    minChar: "Det krävs minst 8 tecken i ditt lösenord."
     pwOneLetter: "Lösenordet måste ha minst 1 bokstav."
     pwOneDigit: "Lösenordet måste ha minst 1 siffra."
     usernameRequired: "Det krävs ett användarnamn."

@@ -28,7 +28,7 @@ pl =
   and: "i"
 
   error:
-    minChar: "7 znaków to minimalna długość hasła."
+    minChar: "8 znaków to minimalna długość hasła."
     pwOneLetter: "Hasło musi zawierać 1 literę."
     pwOneDigit: "Hasło musi zawierać przynajmniej jedną cyfrę."
     usernameRequired: "Wymagana jest nazwa użytkownika."

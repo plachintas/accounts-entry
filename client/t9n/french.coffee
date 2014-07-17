@@ -28,7 +28,7 @@ fr =
   and: "et"
 
   error:
-    minChar: "Votre mot de passe doit contenir au minimum 7 caractères."
+    minChar: "Votre mot de passe doit contenir au minimum 8 caractères."
     pwOneLetter: "Votre mot de passe doit contenir au moins une lettre."
     pwOneDigit: "Votre mot de passe doit contenir au moins un chiffre."
     usernameRequired: "Un nom d'utilisateur est requis."

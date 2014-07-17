@@ -30,7 +30,7 @@ pt =
   "User not found":  "Usuário não encontrado"
 
   error:
-    minChar: "Senha requer um mínimo de 7 caracteres."
+    minChar: "Senha requer um mínimo de 8 caracteres."
     pwOneLetter: "Senha deve conter pelo menos uma letra."
     pwOneDigit: "Senha deve conter pelo menos um digito."
     usernameRequired: "Nome de usuário é obrigatório."

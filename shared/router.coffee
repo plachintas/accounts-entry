@@ -27,28 +27,29 @@ Router.map ->
   @route "entrySignIn",
     path: "/sign-in"
     onBeforeAction: ->
-      Session.set('entryError', undefined)
-      Session.set('buttonText', 'in')
-      Session.set('fromWhere', Router.current().path)
-    onRun: ->
       if Meteor.userId()
         Router.go AccountsEntry.settings.dashboardRoute
 
-      applyCustomTemplate('signIn').apply(@)
+      Session.set('entryError', undefined)
+      Session.set('buttonText', 'in')
+      Session.set('fromWhere', Router.current().path)
 
+      applyCustomTemplate('signIn').apply(@)
 
   @route "entrySignUp",
     path: "/sign-up"
     onBeforeAction: ->
       Session.set('entryError', undefined)
       Session.set('buttonText', 'up')
-    onRun: applyCustomTemplate('signUp')
+
+      applyCustomTemplate('signUp').apply(@)
 
   @route "entryForgotPassword",
     path: "/forgot-password"
     onBeforeAction: ->
       Session.set('entryError', undefined)
-    onRun: applyCustomTemplate('forgotPassword')
+
+      applyCustomTemplate('forgotPassword').apply(@)
 
   @route 'entrySignOut',
     path: '/sign-out'
@@ -64,4 +65,5 @@ Router.map ->
     onBeforeAction: ->
       Session.set('entryError', undefined)
       Session.set('resetToken', @params.resetToken)
-    onRun: applyCustomTemplate('resetPassword')
+
+      applyCustomTemplate('resetPassword').apply(@)

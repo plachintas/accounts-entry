@@ -10,6 +10,11 @@ AccountsEntry =
     extraSignUpFields: []
     showOtherLoginServices: true
 
+    usePlainPassword: false
+    loginWithPassword: Meteor.loginWithPassword
+    createUser: (newUserData, callback) ->
+      Meteor.call 'entryCreateUser', newUserData, callback
+
     signInTemplate: null
     signUpTemplate: null
     forgotPasswordTemplate: null

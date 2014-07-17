@@ -135,9 +135,10 @@ AccountsEntry.entrySignUpEvents = {
         newUserData =
           username: username
           email: email
-          password: AccountsEntry.hashPassword(password)
+          password: if AccountsEntry.settings.usePlainPassword then password else AccountsEntry.hashPassword(password)
           profile: filteredExtraFields
-        Meteor.call 'entryCreateUser', newUserData, (err, data) ->
+
+        AccountsEntry.settings.createUser newUserData, (err, data) ->
           if err
             console.log err
             T9NHelper.accountsError err
@@ -147,9 +148,9 @@ AccountsEntry.entrySignUpEvents = {
             'USERNAME_AND_EMAIL',
             'EMAIL_ONLY'], AccountsEntry.settings.passwordSignupFields)
           userCredential = if isEmailSignUp then email else username
-          Meteor.loginWithPassword userCredential, password, (error) ->
+          AccountsEntry.settings.loginWithPassword userCredential, password, (error) ->
             if error
-              console.log err
+              console.log error
               T9NHelper.accountsError error
             else if Session.get 'fromWhere'
               Router.go Session.get('fromWhere')

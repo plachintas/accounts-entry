@@ -18,7 +18,7 @@ UI.registerHelper 'accountButtons', ->
   Template.entryAccountButtons
 
 UI.registerHelper 'capitalize', (str) ->
-  str.charAt(0).toUpperCase() + str.slice(1)
+  str.capitalize()
 
 UI.registerHelper 'signupClass', ->
   if AccountsEntry.settings.showOtherLoginServices && Accounts.oauth && Accounts.oauth.serviceNames().length > 0

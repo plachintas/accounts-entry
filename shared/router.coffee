@@ -57,6 +57,7 @@ Router.map ->
       Session.set('entryError', undefined)
       if AccountsEntry.settings.homeRoute
         Meteor.logout () ->
+          AccountsEntry.settings.onLogout?()
           Router.go AccountsEntry.settings.homeRoute
       pause()
 

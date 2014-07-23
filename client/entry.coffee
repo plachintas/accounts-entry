@@ -20,6 +20,8 @@ AccountsEntry =
     forgotPasswordTemplate: null
     resetPasswordTemplate: null
 
+    onLogout: null
+
   isStringEmail: (email) ->
     emailPattern = /^([\w.-]+)@([\w.-]+)\.([a-zA-Z.]{2,6})$/i
     if email.match emailPattern then true else false

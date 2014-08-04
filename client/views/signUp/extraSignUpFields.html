@@ -1,13 +1,13 @@
 <template name="entryExtraSignUpFields">
-{{#each extraSignUpFields}}
+    {{#each extraSignUpFields}}
   {{> _entryExtraSignUpField}}
-{{/each}}
+    {{/each}}
 </template>
 
 <template name="_entryExtraSignUpField">
   {{#if isTextField }}
     <div class="form_group">
-      {{text_field name type=type required=required label=label placeholder=placeholder}}
+        {{text_field field type=type required=required label=label placeholder=placeholder }}
     </div>
   {{/if}}
 
